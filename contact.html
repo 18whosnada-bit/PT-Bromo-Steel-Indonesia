@@ -128,14 +128,15 @@
               <h3>Hubungi Kami</h3>
               <p>Sampaikan kebutuhan peralatan atau proyek Anda, tim kami akan menindaklanjuti.</p>
 
-              <!-- Form dikirim ke Web3Forms (tanpa PHP, cocok untuk GitHub Pages) -->
+              <!-- Form dikirim langsung (tanpa AJAX/fetch) ke Web3Forms -->
               <form action="https://api.web3forms.com/submit" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
 
-                <!-- GANTI nilai di bawah dengan Access Key dari Web3Forms (dikirim ke email 122240101@student.upnyk.ac.id) -->
                 <input type="hidden" name="access_key" value="0cf9f2b4-a1dc-44d7-8e87-bf90f9b58d70">
                 <input type="hidden" name="from_name" value="Website PT Bromo Steel Indonesia">
+                <!-- Setelah terkirim, kembali ke halaman ini -->
+                <input type="hidden" name="redirect" value="https://18whosnada-bit.github.io/PT-Bromo-Steel-Indonesia/contact.html?terkirim=1#contact">
                 <!-- Honeypot anti-spam (jangan dihapus) -->
-                <input type="checkbox" name="botcheck" class="d-none" style="display:none;" tabindex="-1" autocomplete="off">
+                <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
                 <div class="row gy-4">
 
@@ -214,7 +215,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- validate.js bawaan template dihapus (penyebab error 405), diganti script di bawah -->
+  <!-- validate.js bawaan template sengaja dihapus (penyebab error 405) -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -227,43 +228,12 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Script pengirim form ke Web3Forms -->
+  <!-- Tampilkan pesan sukses setelah kembali dari Web3Forms -->
   <script>
-    document.querySelector('.php-email-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const form = this;
-      const loading = form.querySelector('.loading');
-      const error = form.querySelector('.error-message');
-      const sent = form.querySelector('.sent-message');
-      const button = form.querySelector('button[type="submit"]');
-
-      loading.classList.add('d-block');
-      error.classList.remove('d-block');
-      sent.classList.remove('d-block');
-      button.disabled = true;
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        const data = await res.json();
-
-        if (data.success) {
-          sent.classList.add('d-block');
-          form.reset();
-        } else {
-          throw new Error(data.message || 'Gagal mengirim pesan. Silakan coba lagi.');
-        }
-      } catch (err) {
-        error.innerHTML = err.message;
-        error.classList.add('d-block');
-      } finally {
-        loading.classList.remove('d-block');
-        button.disabled = false;
-      }
-    });
+    if (new URLSearchParams(window.location.search).get('terkirim') === '1') {
+      var sent = document.querySelector('.php-email-form .sent-message');
+      if (sent) sent.classList.add('d-block');
+    }
   </script>
 
 </body>
