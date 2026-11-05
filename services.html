@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>PT Bromo Steel Indonesia (BOSTO)</title>
+  <meta name="description" content="Struktur organisasi PT Bromo Steel Indonesia.">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo1.png" rel="icon">
+  <link href="assets/img/logo2.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FolioOne
+  * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
+  * Updated: Aug 23 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="services-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <!-- <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <img src="assets/img/logo.webp" alt="">
+      <h1 class="sitename">FolioOne</h1> 
+    </a> -->
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" >Beranda</a></li>
+          <li><a href="about.html">Tentang</a></li>
+          <li><a href="resume.html">Sejarah</a></li>
+          <li><a href="services.html"class="active">Struktur</a></li>
+          <li><a href="portfolio.html">Produk</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://www.facebook.com/ptbosto/?locale=id_ID" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/ptbosto/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/pt-boma-bisma-indra/home/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/62895363487287" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+ <!-- ===================================================================
+     Struktur Organisasi PT Bromo Steel Indonesia
+     Satu file lengkap: HTML + CSS + JavaScript.
+     Bagan otomatis mengecil sesuai lebar layar, jadi tampil utuh
+     tanpa terpotong dan tanpa scroll ke samping.
+     =================================================================== -->
+
+<style>
+  /* ---------- Section & container ---------- */
+  .organization-section .container {
+    width: 96%;
+    max-width: 1800px;          /* lebih lebar agar bagan tidak terlalu kecil */
+    margin: 0 auto;
+  }
+
+  /* ---------- Pembungkus bagan ---------- */
+  .org-chart-wrap {
+    --org-line: #1b6fa0;
+    --org-bg: #14202b;
+    --org-bg-strong: #12283a;
+    --org-text: #ffffff;
+    --org-sub: #c5d0da;
+
+    width: 100%;
+    overflow: hidden;           /* tidak ada scroll samping */
+    padding: 10px 0 20px;
+    box-sizing: border-box;
+  }
+
+  .org-chart {
+    width: max-content;         /* ukuran asli; JS yang mengecilkan */
+    transform-origin: top left;
+  }
+
+  /* ---------- Daftar & garis penghubung ---------- */
+  .org-chart ul {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    margin: 0;
+    padding: 20px 0 0;
+    list-style: none;
+  }
+
+  .org-chart > ul { padding-top: 0; }
+
+  .org-chart li {
+    position: relative;
+    padding: 20px 6px 0;
+    text-align: center;
+    list-style: none;
+  }
+
+  /* garis horizontal + vertikal ke tiap anak */
+  .org-chart li::before,
+  .org-chart li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 50%;
+    height: 20px;
+    border-top: 2px solid var(--org-line);
+  }
+  .org-chart li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid var(--org-line);
+  }
+  .org-chart li::before { border-right: 2px solid var(--org-line); }
+
+  .org-chart li:only-child { padding-top: 0; }
+  .org-chart li:only-child::before,
+  .org-chart li:only-child::after { display: none; }
+  .org-chart li:first-child::before,
+  .org-chart li:last-child::after { border: 0 none; }
+  .org-chart li:last-child::before { border-radius: 0 6px 0 0; }
+  .org-chart li:first-child::after { border-radius: 6px 0 0 0; }
+
+  /* garis vertikal dari induk turun ke baris anak */
+  .org-chart li > ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 20px;
+    border-left: 2px solid var(--org-line);
+  }
+
+  /* node paling atas: tanpa konektor di atasnya */
+  .org-chart > ul > li { padding-top: 0; }
+  .org-chart > ul > li::before,
+  .org-chart > ul > li::after { display: none; }
+
+  /* ---------- Baris staf (Sekretaris, SPI, Asisten, QA/QC) ---------- */
+  .org-chart ul.org-staff {
+    width: max-content;
+    margin: 0 auto;
+    gap: 8px;
+    padding: 20px 0 20px;
+    z-index: 0;
+  }
+  /* garis vertikal utama (batang) di belakang baris staf */
+  .org-chart ul.org-staff::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    height: auto;
+    border-left: 2px solid var(--org-line);
+    z-index: 0;
+  }
+  /* garis horizontal pengikat staf */
+  .org-chart ul.org-staff::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    right: 60px;
+    transform: translateY(-50%);
+    border-top: 2px solid var(--org-line);
+    z-index: 0;
+  }
+  .org-chart ul.org-staff > li {
+    padding: 0;
+    z-index: 1;
+  }
+  .org-chart ul.org-staff > li::before,
+  .org-chart ul.org-staff > li::after { display: none; }
+
+  /* ---------- Kotak jabatan ---------- */
+  .org-node {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    min-width: 108px;
+    max-width: 132px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    background: var(--org-bg);
+    border: 1px solid var(--org-line);
+    border-radius: 8px;
+    color: var(--org-text);
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .org-node .org-position {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--org-text);
+  }
+
+  .org-node strong {
+    display: block;
+    font-weight: 500;
+    color: var(--org-sub);
+  }
+
+  /* kotak yang hanya berisi nama/judul tunggal */
+  .org-node > strong:only-child {
+    color: var(--org-text);
+    font-weight: 700;
+  }
+
+  .org-top {
+    min-width: 190px;
+    max-width: 230px;
+    padding: 12px 16px;
+    font-size: 14px;
+    border-width: 2px;
+    background: var(--org-bg-strong);
+  }
+
+  .org-department {
+    min-width: 140px;
+    max-width: 160px;
+    border-width: 2px;
+    background: var(--org-bg-strong);
+  }
+
+  .org-small {
+    min-width: 88px;
+    max-width: 108px;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+
+  /* ---------- HP: biarkan bisa digeser jika terlalu kecil ---------- */
+  @media (max-width: 768px) {
+    .org-chart-wrap { overflow-x: auto; }
+  }
+</style>
+
+<!-- Struktur Organisasi PT Bromo Steel Indonesia -->
+<section id="struktur" class="organization-section section">
+  <div class="container">
+    <div class="organization-heading" data-aos="fade-up">
+      <span class="organization-eyebrow">PT Bromo Steel Indonesia</span>
+      <h1>Struktur Organisasi Perusahaan</h1>
+      <p>Susunan organisasi dan hubungan koordinasi antarbagian di PT Bromo Steel Indonesia.</p>
+    </div>
+
+    <div class="org-chart-wrap" data-aos="fade-up" data-aos-delay="100">
+      <div class="org-chart">
+        <ul>
+          <li>
+            <div class="org-node org-top">
+              <span class="org-position">Komisaris Direktur</span>
+              <strong>Udik Suprapto, S.T., M.T.</strong>
+            </div>
+
+            <!-- Staf direksi -->
+            <ul class="org-staff">
+              <li>
+                <div class="org-node">
+                  <span class="org-position">Sekretaris Perusahaan</span>
+                  <strong>Sugiono, S.H.</strong>
+                </div>
+              </li>
+              <li>
+                <div class="org-node">
+                  <span class="org-position">S.P.I</span>
+                  <strong>Namang</strong>
+                </div>
+              </li>
+              <li>
+                <div class="org-node">
+                  <span class="org-position">Asisten Direksi</span>
+                  <strong>M. Fauzi</strong>
+                </div>
+              </li>
+              <li>
+                <div class="org-node">
+                  <span class="org-position">QA / QC</span>
+                  <strong>Rizal Yashmiardi, S.T.</strong>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Departemen -->
+            <ul class="org-departments">
+              <!-- Pemasaran & Teknologi -->
+              <li>
+                <div class="org-node org-department">
+                  <span class="org-position">Kadep Pemasaran Teknologi</span>
+                  <strong>A. Wieakseno, S.E.</strong>
+                </div>
+                <ul>
+                  <li>
+                    <div class="org-node">
+                      <span class="org-position">Kadim Pemasaran</span>
+                      <strong>M. Choiron</strong>
+                    </div>
+                    <ul>
+                      <li><div class="org-node org-small"><strong>Pemasaran</strong></div></li>
+                      <li><div class="org-node org-small"><strong>Estimator</strong></div></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="org-node">
+                      <span class="org-position">Kadim Teknologi</span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Produksi -->
+              <li>
+                <div class="org-node org-department">
+                  <span class="org-position">Kadim Produksi</span>
+                  <strong>M. Toyibi</strong>
+                </div>
+                <ul>
+                  <li>
+                    <div class="org-node">
+                      <span class="org-position">Kadim Produksi</span>
+                      <strong>Wijayadi</strong>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="org-node">
+                          <span class="org-position">Manufacturer Engineering</span>
+                          <strong>Bambang W.N</strong>
+                        </div>
+                        <ul>
+                          <li><div class="org-node org-small"><span class="org-position">Maintenance</span><strong>Faboli</strong></div></li>
+                          <li><div class="org-node org-small"><span class="org-position">Logistik</span><strong>Agus Prasetyo</strong></div></li>
+                          <li><div class="org-node org-small"><span class="org-position">Plate Work</span><strong>Eko Rudi</strong></div></li>
+                          <li><div class="org-node org-small"><span class="org-position">Machine Work</span><strong>M. Iksan</strong></div></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="org-node">
+                      <span class="org-position">Kadim P2 Produksi</span>
+                      <strong>Sofwan MK</strong>
+                    </div>
+                    <ul>
+                      <li><div class="org-node org-small"><span class="org-position">PPC</span><strong>Agus S.</strong></div></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="org-node">
+                      <span class="org-position">Kadim Pengadaan</span>
+                      <strong>Fauzi</strong>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Keuangan & Personalia -->
+              <li>
+                <div class="org-node org-department">
+                  <span class="org-position">Kadep Keu &amp; Pers.</span>
+                  <strong>Drs. Sutoyo Hadi</strong>
+                </div>
+                <ul>
+                  <li>
+                    <div class="org-node">
+                      <span class="org-position">Kadim HRD / Pers</span>
+                      <strong>Sugiono, S.H.</strong>
+                    </div>
+                    <ul>
+                      <li><div class="org-node org-small"><strong>HRD Legal</strong></div></li>
+                      <li><div class="org-node org-small"><strong>Pers &amp; Umum</strong></div></li>
+                      <li><div class="org-node org-small"><strong>Ka. Satpam</strong></div></li>
+                      <li><div class="org-node org-small"><strong>Kamib</strong></div></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="org-node">
+                      <span class="org-position">Kadim Keuangan</span>
+                      <strong>Akuntan</strong>
+                    </div>
+                    <ul>
+                      <li><div class="org-node org-small"><strong>Keuangan</strong></div></li>
+                      <li><div class="org-node org-small"><strong>Akuntan</strong></div></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.org-chart -->
+    </div><!-- /.org-chart-wrap -->
+  </div><!-- /.container -->
+</section>
+<!-- End Struktur Organisasi -->
+
+<script>
+  /* Kecilkan bagan otomatis agar muat lebar layar */
+  (function () {
+    function fitOrgChart() {
+      var wrap = document.querySelector('.org-chart-wrap');
+      var chart = document.querySelector('.org-chart');
+      if (!wrap || !chart) return;
+
+      var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+      /* reset dulu untuk mengukur ukuran asli */
+      chart.style.transform = 'none';
+      chart.style.marginLeft = '0';
+      wrap.style.height = 'auto';
+
+      if (isMobile) return;   /* di HP: biarkan scroll samping */
+
+      var w = chart.offsetWidth;
+      var h = chart.offsetHeight;
+      var maxW = wrap.clientWidth;
+
+      var scale = Math.min(1, maxW / w);
+
+      chart.style.transform = 'scale(' + scale + ')';
+      chart.style.marginLeft = Math.max(0, (maxW - w * scale) / 2) + 'px';
+      wrap.style.height = (h * scale + 30) + 'px';
+    }
+
+    window.addEventListener('load', fitOrgChart);
+    window.addEventListener('resize', fitOrgChart);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitOrgChart);
+    }
+    fitOrgChart();
+  })();
+</script>
+
+    
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Hak Cipta</span> <strong class="px-1 sitename">PT Bromo Steel Indonesia</strong> <span>Seluruh Hak Dilindungi<br></span></p>
+      </div>
+     <div class="social-links d-flex justify-content-center">
+        <a href="https://www.facebook.com/ptbosto/?locale=id_ID" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/ptbosto/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/pt-boma-bisma-indra/home/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/62895363487287" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
+</div>
+
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+            </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
