@@ -128,14 +128,14 @@
               <h3>Hubungi Kami</h3>
               <p>Sampaikan kebutuhan peralatan atau proyek Anda, tim kami akan menindaklanjuti.</p>
 
-              <!-- Form dikirim ke FormSubmit (tanpa PHP & tanpa access key) -->
-              <form action="https://formsubmit.co/ajax/122240101@student.upnyk.ac.id" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <!-- Form dikirim ke Web3Forms (tanpa PHP, cocok untuk GitHub Pages) -->
+              <form action="https://api.web3forms.com/submit" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
 
-                <input type="hidden" name="_subject" value="Pesan baru dari Website PT Bromo Steel Indonesia">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
+                <!-- GANTI nilai di bawah dengan Access Key dari Web3Forms (dikirim ke email 122240101@student.upnyk.ac.id) -->
+                <input type="hidden" name="access_key" value="0cf9f2b4-a1dc-44d7-8e87-bf90f9b58d70">
+                <input type="hidden" name="from_name" value="Website PT Bromo Steel Indonesia">
                 <!-- Honeypot anti-spam (jangan dihapus) -->
-                <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off">
+                <input type="checkbox" name="botcheck" class="d-none" style="display:none;" tabindex="-1" autocomplete="off">
 
                 <div class="row gy-4">
 
@@ -227,7 +227,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Script pengirim form ke FormSubmit -->
+  <!-- Script pengirim form ke Web3Forms -->
   <script>
     document.querySelector('.php-email-form').addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -250,7 +250,7 @@
         });
         const data = await res.json();
 
-        if (data.success === true || data.success === 'true') {
+        if (data.success) {
           sent.classList.add('d-block');
           form.reset();
         } else {
