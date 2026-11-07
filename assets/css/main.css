@@ -3788,11 +3788,30 @@ body.index-page .hero .hero-image .floating-elements .floating-card i {
   font-size: 1.1rem;
 }
 
-.about .intro-content p,
-.about .intro-content .lead,
-.visi-misi .vm-list p,
-.visi-misi .vm-vision-text,
-.alur-produksi .step-body p {
+body.about-page .about .intro-content p,
+body.about-page .about .intro-content .lead {
   text-align: justify;
   text-justify: inter-word;
+}
+
+/* Visi */
+body.about-page .visi-misi .vm-vision-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Misi (li berupa flex, jadi p harus melebar penuh) */
+body.about-page .visi-misi .vm-list p {
+  flex: 1;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Deskripsi di bawah judul section & keterangan QA/QC */
+body.about-page .section-title p,
+body.about-page .alur-produksi .flow-legend {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: center; /* baris terakhir tetap di tengah */
+  text-wrap: wrap;
 }
