@@ -3815,3 +3815,17 @@ body.about-page .alur-produksi .flow-legend {
   text-align-last: center; /* baris terakhir tetap di tengah */
   text-wrap: wrap;
 }
+
+/* Isi kartu Visi diposisikan di tengah secara vertikal */
+body.about-page .vm-vision {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Teks Visi lebih besar & rapat supaya mengisi kartu */
+body.about-page .visi-misi .vm-vision-text {
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.6;
+  text-align: left;   /* hilangkan renggang antar kata akibat justify */
+}
