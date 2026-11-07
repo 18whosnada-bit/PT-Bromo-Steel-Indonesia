@@ -767,7 +767,27 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+<script>
+    (function () {
+      function equalize() {
+        var infos = [].slice.call(document.querySelectorAll('.portfolio-info'));
+        if (!infos.length) return;
+        infos.forEach(function (i) { i.style.minHeight = ''; });
+        var max = 0;
+        infos.forEach(function (i) { max = Math.max(max, i.offsetHeight); });
+        infos.forEach(function (i) { i.style.minHeight = max + 'px'; });
+        var c = document.querySelector('.isotope-container');
+        if (c && window.Isotope) { var iso = Isotope.data(c); if (iso) iso.layout(); }
+      }
+      var t;
+      function schedule() { clearTimeout(t); t = setTimeout(equalize, 150); }
+      window.addEventListener('load', function () {
+        setTimeout(equalize, 300);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+      });
+      window.addEventListener('resize', schedule);
+    })();
+  </script>
 </body>
 
 </html>
