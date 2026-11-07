@@ -3691,55 +3691,59 @@ section,
   background: #0b1419;
 }
 
-/* Kunci scroll hanya di halaman index */
-body.index-page {
+html:has(.hero),
+body:has(.hero) {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
 }
 
-/* Hero mengisi sisa tinggi layar setelah header */
-body.index-page .hero {
-  height: calc(100vh - 90px);
-  height: calc(100dvh - 90px);
+/* Sembunyikan footer / teks Hak Cipta di beranda */
+body:has(.hero) footer,
+body:has(.hero) .footer,
+body:has(.hero) #footer {
+  display: none;
+}
+
+/* Hero mengisi sisa layar setelah header */
+body:has(.hero) .hero {
+  height: calc(100vh - 100px);
+  height: calc(100dvh - 100px);
   min-height: 0;
   padding: 0;
   overflow: hidden;
 }
 
-/* Footer (kalau ada) disembunyikan di halaman index */
-body.index-page .footer {
-  display: none;
-}
-
-/* Layar pendek (laptop kecil): rapatkan ukuran supaya muat */
+/* Laptop layar pendek: rapatkan supaya muat */
 @media (max-height: 800px) {
-  body.index-page .hero .hero-content h1 {
+  body:has(.hero) .hero .hero-content h1 {
     font-size: 2.6rem;
   }
-  body.index-page .hero .hero-content h2 {
+  body:has(.hero) .hero .hero-content h2 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
   }
-  body.index-page .hero .hero-content p {
+  body:has(.hero) .hero .hero-content p {
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 1rem;
   }
-  body.index-page .hero .hero-image .image-wrapper {
+  body:has(.hero) .hero .hero-image .image-wrapper {
     max-width: 300px;
   }
 }
 
-/* Di HP: izinkan scroll lagi supaya konten tidak terpotong */
+/* HP / tablet: scroll dibolehkan lagi supaya konten tidak terpotong */
 @media (max-width: 991px) {
-  body.index-page,
-  body.index-page .hero {
+  html:has(.hero),
+  body:has(.hero),
+  body:has(.hero) .hero {
     height: auto;
     overflow: auto;
   }
-  body.index-page .footer {
+  body:has(.hero) footer,
+  body:has(.hero) .footer,
+  body:has(.hero) #footer {
     display: block;
   }
 }
-
