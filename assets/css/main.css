@@ -3698,20 +3698,56 @@ body:has(.hero) {
   overflow: hidden;
 }
 
-/* Sembunyikan footer / teks Hak Cipta di beranda */
-body:has(.hero) footer,
-body:has(.hero) .footer,
-body:has(.hero) #footer {
-  display: none;
+/* Susun halaman: header - isi - footer */
+body:has(.hero) {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Hero mengisi sisa layar setelah header */
-body:has(.hero) .hero {
-  height: calc(100vh - 100px);
-  height: calc(100dvh - 100px);
+body:has(.hero) .header {
+  flex-shrink: 0;
+}
+
+/* Isi (hero) mengambil sisa ruang di tengah */
+body:has(.hero) main,
+body:has(.hero) .main {
+  flex: 1 1 auto;
   min-height: 0;
+  display: flex;
+}
+
+body:has(.hero) .hero {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
   padding: 0;
   overflow: hidden;
+}
+
+/* Footer tetap tampil di bawah, dibuat lebih ramping */
+body:has(.hero) .footer,
+body:has(.hero) #footer,
+body:has(.hero) footer {
+  flex-shrink: 0;
+  padding: 14px 0;
+}
+
+body:has(.hero) .footer .social-links {
+  margin-top: 8px;
+}
+
+body:has(.hero) .footer .social-links a {
+  width: 34px;
+  height: 34px;
+  font-size: 14px;
+}
+
+body:has(.hero) .footer .credits {
+  margin-top: 6px;
+}
+
+body:has(.hero) .footer p {
+  margin-bottom: 0;
 }
 
 /* Laptop layar pendek: rapatkan supaya muat */
@@ -3729,21 +3765,23 @@ body:has(.hero) .hero {
     margin-bottom: 1rem;
   }
   body:has(.hero) .hero .hero-image .image-wrapper {
-    max-width: 300px;
+    max-width: 280px;
   }
 }
 
 /* HP / tablet: scroll dibolehkan lagi supaya konten tidak terpotong */
 @media (max-width: 991px) {
   html:has(.hero),
-  body:has(.hero),
-  body:has(.hero) .hero {
+  body:has(.hero) {
     height: auto;
     overflow: auto;
-  }
-  body:has(.hero) footer,
-  body:has(.hero) .footer,
-  body:has(.hero) #footer {
     display: block;
+  }
+  body:has(.hero) main,
+  body:has(.hero) .main {
+    display: block;
+  }
+  body:has(.hero) .hero {
+    overflow: visible;
   }
 }
