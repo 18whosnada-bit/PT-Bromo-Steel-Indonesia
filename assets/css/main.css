@@ -3740,52 +3740,34 @@ section,
   }
 }
 
-/* Homepage - One Screen Layout */
+/* Homepage - Final Layout Adjustment */
 @media (min-width: 993px) {
 
-  .hero {
+  body:has(.hero) {
+    overflow-y: hidden;
+  }
+
+  body:has(.hero) .hero {
     height: calc(100vh - 90px);
     min-height: 0;
-    padding: 10px 0;
+    padding: 0;
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
     overflow: hidden;
   }
 
-  .hero .hero-content h1 {
-    font-size: 2.8rem;
-    line-height: 1.1;
-    margin-bottom: 10px;
+  /* Naikkan posisi teks dan gambar */
+  body:has(.hero) .hero .container {
+    transform: translateY(-40px);
   }
 
-  .hero .hero-content h2 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-  }
-
-  .hero .hero-content p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 20px;
-  }
-
-  .hero .hero-actions {
-    margin-bottom: 0;
-  }
-
-  .hero .hero-image .image-wrapper {
+  /* Ukuran gambar tetap */
+  body:has(.hero) .hero .hero-image .image-wrapper {
     max-width: 300px;
   }
 
-  .hero .hero-image .image-wrapper img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: contain;
-  }
-
-  /* Sembunyikan footer pada homepage */
+  /* Sembunyikan footer khusus homepage */
+  body:has(.hero) footer,
   body:has(.hero) .footer {
-    display: none;
+    display: none !important;
   }
 }
