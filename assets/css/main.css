@@ -3691,6 +3691,7 @@ section,
   background: #0b1419;
 }
 
+
 html:has(.hero),
 body:has(.hero) {
   height: 100vh;
