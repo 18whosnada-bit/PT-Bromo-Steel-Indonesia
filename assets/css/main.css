@@ -3787,3 +3787,12 @@ body.index-page .hero .hero-image .floating-elements .floating-card {
 body.index-page .hero .hero-image .floating-elements .floating-card i {
   font-size: 1.1rem;
 }
+
+.about .intro-content p,
+.about .intro-content .lead,
+.visi-misi .vm-list p,
+.visi-misi .vm-vision-text,
+.alur-produksi .step-body p {
+  text-align: justify;
+  text-justify: inter-word;
+}
