@@ -3653,3 +3653,21 @@ section,
     overflow-x: auto;
   }
 }
+
+/* Teks pengantar rata kiri-kanan (justify) */
+.portfolio .section-title p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: wrap;
+}
+
+/* Semua foto produk berukuran sama (rasio 1:1).
+   Ubah ke 4 / 3 atau 5 / 4 jika ingin foto lebih lebar. */
+.portfolio .portfolio-card .portfolio-img img,
+.portfolio .portfolio-card .portfolio-img.is-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
