@@ -3661,8 +3661,7 @@ section,
   text-wrap: wrap;
 }
 
-/* Semua foto produk berukuran sama (rasio 1:1).
-   Ubah ke 4 / 3 atau 5 / 4 jika ingin foto lebih lebar. */
+/* Semua foto produk berukuran sama (rasio 1:1) */
 .portfolio .portfolio-card .portfolio-img img,
 .portfolio .portfolio-card .portfolio-img.is-photo img {
   display: block;
@@ -3670,4 +3669,24 @@ section,
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+}
+
+/* Isi kartu: tag selalu rapat di bawah agar kartu sama tinggi */
+.portfolio .portfolio-card .portfolio-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio .portfolio-card .portfolio-info .portfolio-tags {
+  margin-top: auto;
+}
+
+/* Pop-up foto (lightbox): semua foto tampil dalam kotak berukuran sama */
+.glightbox-container .gslide-image img {
+  width: min(92vw, 720px) !important;
+  height: min(68vh, 540px) !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+  background: #0b1419;
 }
