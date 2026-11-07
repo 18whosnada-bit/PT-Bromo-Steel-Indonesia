@@ -3746,9 +3746,9 @@ section,
   }
 
   /* Gambar mengecil mengikuti tinggi layar */
-  body.index-page .hero .hero-image .image-wrapper {
-    max-width: min(360px, 36vh);
-  }
+body.index-page .hero .hero-image .image-wrapper {
+  max-width: min(440px, 46vh);
+}
 
   /* Footer ramping, tetap tampil */
   body.index-page .footer {
