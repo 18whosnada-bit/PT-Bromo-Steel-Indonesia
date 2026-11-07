@@ -3747,7 +3747,7 @@ section,
 
   /* Gambar mengecil mengikuti tinggi layar */
 body.index-page .hero .hero-image .image-wrapper {
-  max-width: min(440px, 46vh);
+  max-width: min(460px, 50vh);
 }
 
   /* Footer ramping, tetap tampil */
