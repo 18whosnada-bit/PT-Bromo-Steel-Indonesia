@@ -27,6 +27,105 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Tambahan CSS khusus halaman kontak (tampilan form & kotak info) -->
+  <style>
+    /* ===== Kotak form ===== */
+    body.contact-page .contact .contact-form {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-top: 4px solid #1e90d6;
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
+    }
+
+    body.contact-page .contact .contact-form h3 {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* ===== Kolom input ===== */
+    body.contact-page .contact .contact-form .form-control {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      padding: 14px 16px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    body.contact-page .contact .contact-form .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: #1e90d6;
+      box-shadow: 0 0 0 4px rgba(30, 144, 214, 0.22);
+    }
+
+    /* ===== Tombol Kirim Pesan ===== */
+    body.contact-page .contact .contact-form button[type="submit"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 240px;
+      padding: 14px 40px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #1e90d6, #0f5fa8);
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(30, 144, 214, 0.38);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+
+    body.contact-page .contact .contact-form button[type="submit"]:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.12);
+      box-shadow: 0 12px 26px rgba(30, 144, 214, 0.55);
+    }
+
+    body.contact-page .contact .contact-form button[type="submit"]:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(30, 144, 214, 0.35);
+    }
+
+    /* ===== Pesan sukses / error ===== */
+    body.contact-page .contact .contact-form .sent-message,
+    body.contact-page .contact .contact-form .error-message {
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    /* ===== Kotak informasi kontak ===== */
+    body.contact-page .contact .info-box {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-top: 4px solid #1e90d6;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
+    }
+
+    body.contact-page .contact .info-item .icon-box {
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1e90d6, #0f5fa8);
+      color: #ffffff;
+    }
+
+    /* ===== Peta ===== */
+    body.contact-page .contact iframe {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
+    }
+
+    /* ===== HP ===== */
+    @media (max-width: 576px) {
+      body.contact-page .contact .contact-form {
+        padding: 24px 18px;
+      }
+      body.contact-page .contact .contact-form button[type="submit"] {
+        width: 100%;
+      }
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: FolioOne
   * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
@@ -161,7 +260,7 @@
                     <div class="error-message"></div>
                     <div class="sent-message">Pesan Anda telah terkirim. Terima kasih!</div>
 
-                    <button type="submit" class="btn">Kirim Pesan</button>
+                    <button type="submit" class="btn"><i class="bi bi-send-fill"></i> Kirim Pesan</button>
                   </div>
 
                 </div>
