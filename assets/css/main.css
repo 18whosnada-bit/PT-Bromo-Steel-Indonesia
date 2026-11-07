@@ -3775,3 +3775,15 @@ body.index-page .hero .hero-image .image-wrapper {
     display: none;
   }
 }
+
+/* Kartu melayang (Kontruksi, Fabrikasi, Baja) dikecilkan */
+body.index-page .hero .hero-image .floating-elements .floating-card {
+  padding: 8px 14px;
+  border-radius: 12px;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+body.index-page .hero .hero-image .floating-elements .floating-card i {
+  font-size: 1.1rem;
+}
