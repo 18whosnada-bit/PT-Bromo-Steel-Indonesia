@@ -3786,3 +3786,21 @@ body:has(.hero) .footer p {
     overflow: visible;
   }
 }
+
+@media (min-width: 992px) {
+  body:has(.hero) footer,
+  body:has(.hero) .footer,
+  body:has(.hero) #footer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-shrink: 0;
+    padding: 14px 0 !important;
+  }
+
+  body:has(.hero) .footer .social-links {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 8px;
+  }
+}
