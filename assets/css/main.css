@@ -3692,115 +3692,86 @@ section,
 }
 
 
-html:has(.hero),
-body:has(.hero) {
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-}
-
-/* Susun halaman: header - isi - footer */
-body:has(.hero) {
-  display: flex;
-  flex-direction: column;
-}
-
-body:has(.hero) .header {
-  flex-shrink: 0;
-}
-
-/* Isi (hero) mengambil sisa ruang di tengah */
-body:has(.hero) main,
-body:has(.hero) .main {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-}
-
-body:has(.hero) .hero {
-  flex: 1 1 auto;
-  min-height: 0;
-  height: auto;
-  padding: 0;
-  overflow: hidden;
-}
-
-/* Footer tetap tampil di bawah, dibuat lebih ramping */
-body:has(.hero) .footer,
-body:has(.hero) #footer,
-body:has(.hero) footer {
-  flex-shrink: 0;
-  padding: 14px 0;
-}
-
-body:has(.hero) .footer .social-links {
-  margin-top: 8px;
-}
-
-body:has(.hero) .footer .social-links a {
-  width: 34px;
-  height: 34px;
-  font-size: 14px;
-}
-
-body:has(.hero) .footer .credits {
-  margin-top: 6px;
-}
-
-body:has(.hero) .footer p {
-  margin-bottom: 0;
-}
-
-/* Laptop layar pendek: rapatkan supaya muat */
-@media (max-height: 800px) {
-  body:has(.hero) .hero .hero-content h1 {
-    font-size: 2.6rem;
-  }
-  body:has(.hero) .hero .hero-content h2 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
-  body:has(.hero) .hero .hero-content p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-  body:has(.hero) .hero .hero-image .image-wrapper {
-    max-width: 280px;
-  }
-}
-
-/* HP / tablet: scroll dibolehkan lagi supaya konten tidak terpotong */
-@media (max-width: 991px) {
-  html:has(.hero),
-  body:has(.hero) {
-    height: auto;
-    overflow: auto;
-    display: block;
-  }
-  body:has(.hero) main,
-  body:has(.hero) .main {
-    display: block;
-  }
-  body:has(.hero) .hero {
-    overflow: visible;
-  }
-}
-
 @media (min-width: 992px) {
-  body:has(.hero) footer,
-  body:has(.hero) .footer,
-  body:has(.hero) #footer {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    flex-shrink: 0;
-    padding: 14px 0 !important;
+
+  body.index-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
   }
 
-  body:has(.hero) .footer .social-links {
-    display: flex !important;
-    justify-content: center;
-    margin-top: 8px;
+  /* Header lebih ramping */
+  body.index-page .header {
+    flex-shrink: 0;
+    padding: 8px 0;
+  }
+
+  /* Hero mengisi ruang tengah, min-height bawaan template dimatikan */
+  body.index-page .main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body.index-page .hero {
+    flex: 1 0 auto;
+    min-height: 0;
+    padding: 2vh 0;
+  }
+
+  /* Teks mengecil mengikuti tinggi layar */
+  body.index-page .hero .hero-content h1 {
+    font-size: clamp(2rem, 6vh, 3.2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  body.index-page .hero .hero-content h2 {
+    font-size: clamp(1.1rem, 3vh, 1.4rem);
+    margin-bottom: 0.8rem;
+  }
+
+  body.index-page .hero .hero-content p {
+    font-size: clamp(0.85rem, 2vh, 1.05rem);
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+
+  body.index-page .hero .hero-actions {
+    margin-bottom: 0;
+  }
+
+  body.index-page .hero .hero-actions .btn {
+    padding: 8px 26px;
+  }
+
+  /* Gambar mengecil mengikuti tinggi layar */
+  body.index-page .hero .hero-image .image-wrapper {
+    max-width: min(360px, 36vh);
+  }
+
+  /* Footer ramping, tetap tampil */
+  body.index-page .footer {
+    flex-shrink: 0;
+    padding: 10px 0;
+  }
+
+  body.index-page .footer .copyright p {
+    margin-bottom: 0;
+  }
+
+  body.index-page .footer .social-links {
+    margin-top: 6px;
+  }
+
+  body.index-page .footer .social-links a {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  /* Div credits kosong, hilangkan supaya tidak makan tempat */
+  body.index-page .footer .credits {
+    display: none;
   }
 }
