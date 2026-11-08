@@ -70,31 +70,31 @@
       }
     }
 
-    /* ===== Logo dengan outline lengkung ===== */
-    #header .logo-bosto {
-      display: flex;
-      align-items: center;
-      border: 2px solid #1e90d6;
-      border-radius: 8px;
-      overflow: hidden;
-      padding: 0;
-      line-height: 0;
-      background: #ffffff;
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
-    }
+    /* ===== Logo dalam kotak putih lengkung ===== */
+#header .logo-bosto {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  line-height: 0;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    #header .logo-bosto:hover {
-      box-shadow: 0 0 0 4px rgba(30, 144, 214, 0.22);
-      transform: translateY(-1px);
-    }
+#header .logo-bosto:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
 
-    #header .logo-bosto img {
-      display: block;
-      height: 44px;
-      width: auto;
-      max-height: none;
-      border-radius: 6px;
-    }
+#header .logo-bosto img {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-height: none;
+  border-radius: 0;
+}
 
     /* ===== Font seragam dengan subjudul "Hubungi PT Bromo Steel Indonesia ..." ===== */
     body.contact-page .contact .info-box,
