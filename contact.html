@@ -29,6 +29,33 @@
 
   <!-- Tambahan CSS khusus halaman kontak (tampilan form & kotak info) -->
   <style>
+    /* ===== Logo header di kiri, menu di kanan ===== */
+    #header .container {
+      flex-direction: row !important;
+      justify-content: space-between !important;
+    }
+
+    #header .logo-bosto {
+      order: 0 !important;
+      margin-right: auto !important;
+      margin-left: 0 !important;
+      display: flex;
+      align-items: center;
+    }
+
+    #header .logo-bosto img {
+      height: 44px;
+      width: auto;
+      max-height: none;
+    }
+
+    #header .navmenu {
+      order: 1 !important;
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      flex: 0 0 auto;
+    }
+
     /* ===== Font seragam dengan subjudul "Hubungi PT Bromo Steel Indonesia ..." ===== */
     body.contact-page .contact .info-box,
     body.contact-page .contact .info-box h3,
@@ -178,24 +205,18 @@
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
       <!-- Logo PT BOSTO (kiri) -->
-    <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-      <img src="ssets/img/logo2.png" alt="Logo PT Bromo Steel Indonesia" style="height: 44px; width: auto; max-height: none;">
-    </a>
-      
-      <!-- <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-      <img src="assets/img/logo.webp" alt="">
-      <h1 class="sitename">FolioOne</h1> 
-    </a> -->
+      <a href="index.html" class="logo-bosto">
+        <img src="assets/img/logo2.png" alt="Logo PT Bromo Steel Indonesia">
+      </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" >Beranda</a></li>
+          <li><a href="index.html">Beranda</a></li>
           <li><a href="about.html">Tentang</a></li>
           <li><a href="resume.html">Sejarah</a></li>
           <li><a href="services.html">Struktur</a></li>
           <li><a href="portfolio.html">Produk</a></li>
-         
-          <li><a href="contact.html"class="active">Kontak</a></li>
+          <li><a href="contact.html" class="active">Kontak</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
