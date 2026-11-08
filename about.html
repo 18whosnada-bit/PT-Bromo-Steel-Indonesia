@@ -27,6 +27,51 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- CSS logo header (kotak putih lengkung di pojok kanan) -->
+  <style>
+    #header .header-social-links {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    #header .header-social-links a.logo-bosto {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 6px 14px;
+      background: #ffffff;
+      border: none;
+      border-radius: 12px;
+      line-height: 0;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    #header .header-social-links a.logo-bosto:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    #header .header-social-links a.logo-bosto img {
+      display: block;
+      height: 36px;
+      width: auto;
+      max-width: none;
+      max-height: none;
+      border-radius: 0;
+    }
+
+    @media (max-width: 576px) {
+      #header .header-social-links a.logo-bosto {
+        padding: 4px 10px;
+      }
+      #header .header-social-links a.logo-bosto img {
+        height: 28px;
+      }
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: FolioOne
   * Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
@@ -58,11 +103,11 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+      <!-- Logo PT BOSTO menggantikan ikon sosmed (pojok kanan) -->
       <div class="header-social-links">
-        <a href="https://www.facebook.com/ptbosto/?locale=id_ID" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/ptbosto/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/pt-boma-bisma-indra/home/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
-        <a href="https://wa.me/62895363487287" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
+        <a href="index.html" class="logo-bosto">
+          <img src="assets/img/logo2.png" alt="Logo PT Bromo Steel Indonesia">
+        </a>
       </div>
 
     </div>
