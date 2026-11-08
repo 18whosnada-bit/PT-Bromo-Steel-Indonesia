@@ -3829,3 +3829,15 @@ body.about-page .visi-misi .vm-vision-text {
   line-height: 1.6;
   text-align: left;   /* hilangkan renggang antar kata akibat justify */
 }
+
+/* Sembunyikan kotak putih + judul di lightbox */
+.glightbox-container .gslide-description,
+.glightbox-container .gdesc-inner {
+  display: none !important;
+}
+
+/* Latar belakang kotak gambar ikut gelap, bukan putih */
+.glightbox-container .gslide-inner-content,
+.glightbox-container .ginner-container {
+  background: transparent !important;
+  bo
