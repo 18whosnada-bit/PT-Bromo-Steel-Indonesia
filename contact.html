@@ -29,19 +29,37 @@
 
   <!-- Tambahan CSS khusus halaman kontak (tampilan form & kotak info) -->
   <style>
-    /* ===== Kotak form ===== */
-    body.contact-page .contact .contact-form {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-top: 4px solid #1e90d6;
-      border-radius: 16px;
-      padding: 32px 36px 28px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
+    /* ===== Font seragam dengan subjudul "Hubungi PT Bromo Steel Indonesia ..." ===== */
+    body.contact-page .contact .info-box,
+    body.contact-page .contact .info-box h3,
+    body.contact-page .contact .info-box h4,
+    body.contact-page .contact .info-box p,
+    body.contact-page .contact .contact-form,
+    body.contact-page .contact .contact-form h3,
+    body.contact-page .contact .contact-form p,
+    body.contact-page .contact .contact-form .form-control,
+    body.contact-page .contact .contact-form button {
+      font-family: "Roboto", sans-serif;
     }
 
+    body.contact-page .contact .info-box h3,
     body.contact-page .contact .contact-form h3 {
       font-weight: 700;
       margin-bottom: 8px;
+    }
+
+    body.contact-page .contact .info-box p,
+    body.contact-page .contact .contact-form p {
+      font-weight: 400;
+    }
+
+    /* ===== Kotak form (tanpa garis biru di atas) ===== */
+    body.contact-page .contact .contact-form {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 32px 36px 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
     }
 
     /* ===== Kolom input ===== */
@@ -90,6 +108,12 @@
       transform: translateY(0);
     }
 
+    body.contact-page .contact .contact-form button[type="submit"]:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     /* ===== Pesan sukses / error ===== */
     body.contact-page .contact .contact-form .sent-message,
     body.contact-page .contact .contact-form .error-message {
@@ -97,19 +121,18 @@
       margin-bottom: 16px;
     }
 
-    /* ===== Kotak informasi kontak ===== */
+    /* ===== Kotak informasi kontak (tanpa garis biru di atas) ===== */
     body.contact-page .contact .info-box {
       display: flex;
       flex-direction: column;
       height: 100%;
-      padding-bottom: 28px;
+      padding-bottom: 12px;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-top: 4px solid #1e90d6;
       border-radius: 16px;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
     }
 
-    /* Item dibagi rata supaya tidak ada ruang kosong di bawah */
+    /* Item dibagi rata, tanpa ruang kosong berlebih di bawah */
     body.contact-page .contact .info-box .info-item {
       flex: 1;
       display: flex;
@@ -132,7 +155,7 @@
     /* ===== HP ===== */
     @media (max-width: 576px) {
       body.contact-page .contact .contact-form {
-        padding: 24px 18px 22px;
+        padding: 24px 18px 14px;
       }
       body.contact-page .contact .contact-form button[type="submit"] {
         width: 100%;
@@ -241,13 +264,11 @@
               <h3>Hubungi Kami</h3>
               <p>Sampaikan kebutuhan peralatan atau proyek Anda, tim kami akan menindaklanjuti.</p>
 
-              <!-- Form dikirim langsung (tanpa AJAX/fetch) ke Web3Forms -->
-              <form action="https://api.web3forms.com/submit" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <!-- Form dikirim lewat fetch ke Web3Forms (tanpa refresh halaman) -->
+              <form id="contactForm" action="https://api.web3forms.com/submit" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
 
                 <input type="hidden" name="access_key" value="0cf9f2b4-a1dc-44d7-8e87-bf90f9b58d70">
                 <input type="hidden" name="from_name" value="Website PT Bromo Steel Indonesia">
-                <!-- Setelah terkirim, kembali ke halaman ini -->
-                <input type="hidden" name="redirect" value="https://18whosnada-bit.github.io/PT-Bromo-Steel-Indonesia/contact.html?terkirim=1#contact">
                 <!-- Honeypot anti-spam (jangan dihapus) -->
                 <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
@@ -270,9 +291,9 @@
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Memuat</div>
+                    <div class="loading">Mengirim pesan...</div>
                     <div class="error-message"></div>
-                    <div class="sent-message">Pesan Anda telah terkirim. Terima kasih!</div>
+                    <div class="sent-message">Pesan berhasil terkirim. Terima kasih!</div>
 
                     <button type="submit" class="btn"><i class="bi bi-send-fill"></i> Kirim Pesan</button>
                   </div>
@@ -341,12 +362,52 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Tampilkan pesan sukses setelah kembali dari Web3Forms -->
+  <!-- Kirim form tanpa refresh halaman, lalu tampilkan pesan berhasil -->
   <script>
-    if (new URLSearchParams(window.location.search).get('terkirim') === '1') {
-      var sent = document.querySelector('.php-email-form .sent-message');
-      if (sent) sent.classList.add('d-block');
-    }
+    (function () {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+
+      var loading = form.querySelector('.loading');
+      var errorBox = form.querySelector('.error-message');
+      var sentBox = form.querySelector('.sent-message');
+      var button = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        loading.classList.add('d-block');
+        errorBox.classList.remove('d-block');
+        sentBox.classList.remove('d-block');
+        button.disabled = true;
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+          .then(function (response) { return response.json(); })
+          .then(function (data) {
+            loading.classList.remove('d-block');
+            button.disabled = false;
+
+            if (data.success) {
+              sentBox.classList.add('d-block');
+              form.reset();
+              setTimeout(function () { sentBox.classList.remove('d-block'); }, 8000);
+            } else {
+              errorBox.textContent = data.message || 'Pesan gagal terkirim. Silakan coba lagi.';
+              errorBox.classList.add('d-block');
+            }
+          })
+          .catch(function () {
+            loading.classList.remove('d-block');
+            button.disabled = false;
+            errorBox.textContent = 'Terjadi gangguan jaringan. Silakan coba lagi.';
+            errorBox.classList.add('d-block');
+          });
+      });
+    })();
   </script>
 
 </body>
