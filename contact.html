@@ -30,7 +30,35 @@
   <!-- Tambahan CSS khusus halaman kontak (tampilan form & kotak info) -->
   <style>
     /* ===== Logo di pojok kanan header (kotak putih lengkung) ===== */
-    #header .header-social-links {
+    #header .logo-bosto {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      background: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 6px 14px;
+      line-height: 0;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    #header .logo-bosto:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    #header .logo-bosto img {
+      display: block;
+      height: 36px;
+      width: auto;
+      max-height: none;
+      border-radius: 0;
+    }
+
+
+
+#header .header-social-links {
       display: flex;
       align-items: center;
       flex-shrink: 0;
@@ -71,6 +99,7 @@
         height: 28px;
       }
     }
+
 
 
     /* ===== Font seragam dengan subjudul "Hubungi PT Bromo Steel Indonesia ..." ===== */
